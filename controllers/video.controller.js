@@ -63,6 +63,7 @@ export const uploadVideo = async (req, res) => {
       thumbnail: `https://${bucketName}.s3.${process.env.AWS_REGION}.amazonaws.com/${thumbnailKey}`,
       url: `https://${bucketName}.s3.${process.env.AWS_REGION}.amazonaws.com/${videoKey}`,
       user: userExists._id,
+      author: userExists.name,
       uploadedAt: new Date().toISOString(),
     }
     const video = new Video(videoData);

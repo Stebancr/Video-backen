@@ -4,6 +4,7 @@ const VideoSchema = new mongoose.Schema({
   title: String,
   thumbnail: String,
   url: String,
+  author: String,
   user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
   uploadedAt: { type: Date, default: Date.now },
 }, { versionKey: false });
