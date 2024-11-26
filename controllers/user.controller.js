@@ -1,4 +1,4 @@
-import compare from "bcrypt";
+import bcrypt from "bcrypt";
 import User from "../models/user.js";
 
 export const logIn = async (req, res) => {
@@ -9,7 +9,7 @@ export const logIn = async (req, res) => {
       return res.status(401).json({ error: 'El usuario no existe' });
     }
     const userData = user[0];
-    const passValid = await compare(password, userData.password);
+    const passValid = await bcrypt.compare(password, userData.password);
     if (!passValid) {
       return res.status(401).json({ error: 'Credenciales inválidas' });
     }
